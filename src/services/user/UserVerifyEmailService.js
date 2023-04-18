@@ -1,3 +1,5 @@
+//aikhane DataModel er sathe OTPSModel er kaj korte hobe tai alada kore import kore newa hoyeche.
+
 const OTPSModel = require("../../models/Users/OTPSModel");
 const SendEmailUtility = require("../../utility/SendEmailUtility");
 
