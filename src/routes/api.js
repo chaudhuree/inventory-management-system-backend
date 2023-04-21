@@ -7,7 +7,8 @@ const UsersController = require("../controllers/Users/UsersController");
 const BrandsController = require("../controllers/Brands/BrandsController");
 // categories controller
 const CategoriesController = require("../controllers/Categories/CategoriesController");
-
+// customer controller
+const CustomersController = require("../controllers/Customers/CustomersController");
 const router = express.Router();
 
 
@@ -32,6 +33,12 @@ router.post("/CreateCategories", AuthVerifyMiddleware, CategoriesController.Crea
 router.post("/UpdateCategories/:id", AuthVerifyMiddleware, CategoriesController.UpdateCategories);
 router.get("/CategoriesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CategoriesController.CategoriesList);
 router.get("/CategoriesDropDown", AuthVerifyMiddleware, CategoriesController.CategoriesDropDown);
+
+// Customers
+router.post("/CreateCustomers",AuthVerifyMiddleware,CustomersController.CreateCustomers);
+router.post("/UpdateCustomers/:id",AuthVerifyMiddleware,CustomersController.UpdateCustomers);
+router.get("/CustomersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,CustomersController.CustomersList);
+router.get("/CustomersDropDown",AuthVerifyMiddleware,CustomersController.CustomersDropDown);
 
 
 module.exports = router;
