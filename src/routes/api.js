@@ -4,7 +4,9 @@ const AuthVerifyMiddleware = require("../middlewares/AuthVerifyMiddleware");
 // user controller for CRUD and reset password
 const UsersController = require("../controllers/Users/UsersController");
 // brands controller 
-const BrandsController=require("../controllers/Brands/BrandsController");
+const BrandsController = require("../controllers/Brands/BrandsController");
+// categories controller
+const CategoriesController = require("../controllers/Categories/CategoriesController");
 
 const router = express.Router();
 
@@ -23,5 +25,13 @@ router.post("/CreateBrand", AuthVerifyMiddleware, BrandsController.CreateBrand);
 router.post("/UpdateBrand/:id", AuthVerifyMiddleware, BrandsController.UpdateBrand);
 router.get("/BrandList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, BrandsController.BrandList);
 router.get("/BrandDropDown", AuthVerifyMiddleware, BrandsController.BrandDropDown);
+
+
+// Categories
+router.post("/CreateCategories", AuthVerifyMiddleware, CategoriesController.CreateCategories);
+router.post("/UpdateCategories/:id", AuthVerifyMiddleware, CategoriesController.UpdateCategories);
+router.get("/CategoriesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CategoriesController.CategoriesList);
+router.get("/CategoriesDropDown", AuthVerifyMiddleware, CategoriesController.CategoriesDropDown);
+
 
 module.exports = router;
