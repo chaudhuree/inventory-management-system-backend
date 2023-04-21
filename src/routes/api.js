@@ -3,6 +3,8 @@ const express = require('express');
 const AuthVerifyMiddleware = require("../middlewares/AuthVerifyMiddleware");
 // user controller for CRUD and reset password
 const UsersController = require("../controllers/Users/UsersController");
+// brands controller 
+const BrandsController=require("../controllers/Brands/BrandsController");
 
 const router = express.Router();
 
