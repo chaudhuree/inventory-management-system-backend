@@ -13,6 +13,8 @@ const CustomersController = require("../controllers/Customers/CustomersControlle
 const SuppliersController = require("../controllers/Suppliers/SuppliersController");
 // expense types controller
 const ExpenseTypesController = require("../controllers/Expenses/ExpenseTypesController");
+// expense controller
+const ExpensesController = require("../controllers/Expenses/ExpensesController");
 const router = express.Router();
 
 
@@ -55,6 +57,10 @@ router.post("/CreateExpenseTypes", AuthVerifyMiddleware, ExpenseTypesController.
 router.post("/UpdateExpenseTypes/:id", AuthVerifyMiddleware, ExpenseTypesController.UpdateExpenseTypes);
 router.get("/ExpenseTypesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ExpenseTypesController.ExpenseTypesList);
 router.get("/ExpenseTypesDropDown", AuthVerifyMiddleware, ExpenseTypesController.ExpenseTypesDropDown);
+
+// ExpenseTypes
+router.post("/CreateExpenseTypes", AuthVerifyMiddleware, ExpenseTypesController.CreateExpenseTypes);
+router.post("/UpdateExpenseTypes/:id", AuthVerifyMiddleware, ExpenseTypesController.UpdateExpenseTypes);
 
 
 module.exports = router;
