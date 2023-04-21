@@ -9,6 +9,8 @@ const BrandsController = require("../controllers/Brands/BrandsController");
 const CategoriesController = require("../controllers/Categories/CategoriesController");
 // customer controller
 const CustomersController = require("../controllers/Customers/CustomersController");
+// suppliers controller
+const SuppliersController = require("../controllers/Suppliers/SuppliersController");
 const router = express.Router();
 
 
@@ -35,10 +37,16 @@ router.get("/CategoriesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddlewa
 router.get("/CategoriesDropDown", AuthVerifyMiddleware, CategoriesController.CategoriesDropDown);
 
 // Customers
-router.post("/CreateCustomers",AuthVerifyMiddleware,CustomersController.CreateCustomers);
-router.post("/UpdateCustomers/:id",AuthVerifyMiddleware,CustomersController.UpdateCustomers);
-router.get("/CustomersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,CustomersController.CustomersList);
-router.get("/CustomersDropDown",AuthVerifyMiddleware,CustomersController.CustomersDropDown);
+router.post("/CreateCustomers", AuthVerifyMiddleware, CustomersController.CreateCustomers);
+router.post("/UpdateCustomers/:id", AuthVerifyMiddleware, CustomersController.UpdateCustomers);
+router.get("/CustomersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CustomersController.CustomersList);
+router.get("/CustomersDropDown", AuthVerifyMiddleware, CustomersController.CustomersDropDown);
+
+// Suppliers
+router.post("/CreateSuppliers", AuthVerifyMiddleware, SuppliersController.CreateSuppliers);
+router.post("/UpdateSuppliers/:id", AuthVerifyMiddleware, SuppliersController.UpdateSuppliers);
+router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SuppliersController.SuppliersList);
+router.get("/SuppliersDropDown", AuthVerifyMiddleware, SuppliersController.SuppliersDropDown);
 
 
 module.exports = router;
