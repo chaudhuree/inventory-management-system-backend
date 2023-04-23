@@ -71,6 +71,7 @@ router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware
 // Products
 router.post("/CreateProducts", AuthVerifyMiddleware, ProductsController.CreateProducts);
 router.post("/UpdateProducts/:id", AuthVerifyMiddleware, ProductsController.UpdateProducts);
+router.get("/ProductsList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ProductsController.ProductsList);
 
 
 module.exports = router;
