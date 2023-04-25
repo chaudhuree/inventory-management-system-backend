@@ -33,11 +33,20 @@ const ListOneJoinService = async (Request, DataModel, SearchArray, JoinStage) =>
                     }
                 }
             ])
-            // or
+            //const query = {
+            //   UserEmail: UserEmail,
+            //   $or: SearchArray
+            // };
+
+            // if no search query is provided then,
+
             //dataList=DataModel.find({UserEmail:UserEmail}).populate("TypeID").skip(skipRow).limit(perPage)
             // or
             //dataCount=DataModel.countDocuments({UserEmail:UserEmail})
             //data:{ Total: dataCount, Rows: dataList }
+
+            // if search query is provided then,
+            //dataList=DataModel.find(query).populate("TypeID").skip(skipRow).limit(perPage)
         }
         return { status: "success", data: data }
     }
