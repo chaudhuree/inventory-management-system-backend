@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const DataSchema = mongoose.Schema(
   {
     UserEmail: { type: String },
-    PurchaseID: { type: mongoose.Schema.Types.ObjectId },
-    ProductID: { type: mongoose.Schema.Types.ObjectId },
+    PurchaseID: { type: mongoose.Schema.Types.ObjectId, ref: "purchases" },
+    ProductID: { type: mongoose.Schema.Types.ObjectId, ref: "products" },
     Qty: { type: Number },
     UnitCost: { type: Number },
     Total: { type: Number },

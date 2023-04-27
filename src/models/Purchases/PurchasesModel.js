@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const DataSchema = mongoose.Schema(
   {
     UserEmail: { type: String },
-    SupplierID: { type: mongoose.Schema.Types.ObjectId },
+    SupplierID: { type: mongoose.Schema.Types.ObjectId, ref: "suppliers" },
     VatTax: { type: Number },
     Discount: { type: Number },
     OtherCost: { type: Number },
