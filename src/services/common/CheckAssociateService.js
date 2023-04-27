@@ -17,7 +17,7 @@ const CheckAssociateService = async (QueryObject, AssociateModel) => {
             { $match: QueryObject }
         ])
         // or,
-        // let data= await AsswociateModel.find(QueryObject)
+        // let data = await AssociateModel.find(QueryObject)
 
         return data.length > 0;
         // if exists it will return true

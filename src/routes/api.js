@@ -41,6 +41,7 @@ router.post("/CreateBrand", AuthVerifyMiddleware, BrandsController.CreateBrand);
 router.post("/UpdateBrand/:id", AuthVerifyMiddleware, BrandsController.UpdateBrand);
 router.get("/BrandList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, BrandsController.BrandList);
 router.get("/BrandDropDown", AuthVerifyMiddleware, BrandsController.BrandDropDown);
+router.get("/DeleteBrand/:id", AuthVerifyMiddleware, BrandsController.DeleteBrand);
 
 
 // Categories
@@ -71,7 +72,7 @@ router.get("/ExpenseTypesDropDown", AuthVerifyMiddleware, ExpenseTypesController
 router.post("/CreateExpenses", AuthVerifyMiddleware, ExpensesController.CreateExpenses);
 router.post("/UpdateExpenses/:id", AuthVerifyMiddleware, ExpensesController.UpdateExpenses);
 router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ExpensesController.ExpensesList);
-router.get("/DeleteExpense/:id",AuthVerifyMiddleware,ExpensesController.DeleteExpense);
+router.get("/DeleteExpense/:id", AuthVerifyMiddleware, ExpensesController.DeleteExpense);
 
 
 // Products
