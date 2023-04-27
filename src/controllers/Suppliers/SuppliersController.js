@@ -42,7 +42,7 @@ exports.DeleteSupplier = async (req, res) => {
     let DeleteID = req.params.id;
     const ObjectId = mongoose.Types.ObjectId;
     let CheckAssociate = await CheckAssociateService(
-        { SupplierID: ObjectId(DeleteID) },
+        { SupplierID: new ObjectId(DeleteID) },
         PurchasesModel
     );
     if (CheckAssociate) {
