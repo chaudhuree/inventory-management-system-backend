@@ -3,6 +3,10 @@ const CreateService = require("../../services/common/CreateService");
 const UpdateService = require("../../services/common/UpdateService");
 const ListService = require("../../services/common/ListService");
 const DropDownService = require("../../services/common/DropDownService");
+const mongoose = require("mongoose");
+const CheckAssociateService = require("../../services/common/CheckAssociateService");
+const PurchasesModel = require("../../models/Purchases/PurchasesModel");
+const DeleteService = require("../../services/common/DeleteService");
 
 exports.CreateSuppliers = async (req, res) => {
     let Result = await CreateService(req, DataModel);
@@ -32,11 +36,8 @@ exports.SuppliersDropDown = async (req, res) => {
     res.status(200).json(Result);
 };
 
-exports.SuppliersDetailsByID = async (req, res) => {
-    let Result = await DetailsByIDService(req, DataModel);
-    res.status(200).json(Result);
-};
 
+// delete supplier
 exports.DeleteSupplier = async (req, res) => {
     let DeleteID = req.params.id;
     const ObjectId = mongoose.Types.ObjectId;
