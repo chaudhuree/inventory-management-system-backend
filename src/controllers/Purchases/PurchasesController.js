@@ -2,12 +2,43 @@ const ParentModel = require("../../models/Purchases/PurchasesModel"); // ParentM
 const ChildsModel = require("../../models/Purchases/PurchaseProductsModel");
 // like ParentModel, PurchaseProductsModel is imported as ChildsModel
 
-
 // const CreateParentChildsService = require("../../services/common/CreateParentChildsService");
 const CreateParentChildsServiceWithTransaction = require("../../services/common/CreateParentChildsServiceWithTransaction");
-
+const ListOneJoinService = require("../../services/common/ListOneJoinService");
 
 exports.CreatePurchases = async (req, res) => {
-    let Result = await CreateParentChildsServiceWithTransaction(req, ParentModel, ChildsModel, 'PurchaseID');
-    res.status(200).json(Result)
-}
+  let Result = await CreateParentChildsServiceWithTransaction(
+    req,
+    ParentModel,
+    ChildsModel,
+    "PurchaseID"
+  );
+  res.status(200).json(Result);
+};
+
+exports.PurchasesList = async (req, res) => {
+  let SearchRgx = { $regex: req.params.searchKeyword, $options: "i" };
+  let JoinStage = {
+    $lookup: {
+      from: "suppliers",
+      localField: "SupplierID",
+      foreignField: "_id",
+      as: "suppliers",
+    },
+  };
+  let SearchArray = [
+    { Note: SearchRgx },
+    { "suppliers.Name": SearchRgx },
+    { "suppliers.Address": SearchRgx },
+    { "suppliers.Phone": SearchRgx },
+    { "suppliers.Email": SearchRgx },
+  ];
+  // as here only join with supliersId so,ListOneJoinService(req,ParentModel,SearchArray,JoinStage) is enough
+  let Result = await ListOneJoinService(
+    req,
+    ParentModel,
+    SearchArray,
+    JoinStage
+  );
+  res.status(200).json(Result);
+};

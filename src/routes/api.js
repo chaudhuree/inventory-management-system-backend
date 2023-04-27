@@ -76,6 +76,6 @@ router.get("/ProductsList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware
 
 //Purchases
 router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.CreatePurchases);
-
+router.get("/PurchasesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, PurchasesController.PurchasesList);
 
 module.exports = router;
