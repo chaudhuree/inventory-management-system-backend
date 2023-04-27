@@ -1,8 +1,13 @@
+const mongoose = require('mongoose');
 const DataModel = require("../../models/Customers/CustomersModel");
 const CreateService = require("../../services/common/CreateService");
 const UpdateService = require("../../services/common/UpdateService");
 const ListService = require("../../services/common/ListService");
 const DropDownService = require("../../services/common/DropDownService");
+const CheckAssociateService = require("../../services/common/CheckAssociateService");
+const SalesModel = require("../../models/Sales/SalesModel");
+const ReturnsModel = require("../../models/Returns/ReturnsModel");
+const DeleteService = require("../../services/common/DeleteService");
 
 
 exports.CreateCustomers = async (req, res) => {
@@ -31,3 +36,22 @@ exports.CustomersDropDown = async (req, res) => {
 
 
 
+
+
+
+exports.DeleteCustomer = async (req, res) => {
+    let DeleteID = req.params.id;
+    const ObjectId = mongoose.Types.ObjectId;
+    let CheckSalesAssociate = await CheckAssociateService({ CustomerID: new ObjectId(DeleteID) }, SalesModel);
+    let CheckReturnAssociate = await CheckAssociateService({ CustomerID: new ObjectId(DeleteID) }, ReturnsModel);
+    if (CheckSalesAssociate) {
+        res.status(200).json({ status: "associate", data: "Associate with Sales" })
+    } else if (CheckReturnAssociate) {
+        res.status(200).json({ status: "associate", data: "Associate with Return" })
+    }
+    else {
+        // let Result = await DeleteService(req, DataModel);
+        // res.status(200).json(Result)
+        res.send('customer deleted')
+    }
+}
