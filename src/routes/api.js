@@ -19,6 +19,10 @@ const ExpensesController = require("../controllers/Expenses/ExpensesController")
 const ProductsController = require("../controllers/Products/ProductsController");
 // purchase controller
 const PurchasesController = require("../controllers/Purchases/PurchasesController");
+// sale controller
+const SalesController = require("../controllers/Sales/SalesController");
+// return controller
+const ReturnsController = require("../controllers/Returns/ReturnsController");
 
 const router = express.Router();
 
@@ -77,5 +81,15 @@ router.get("/ProductsList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware
 //Purchases
 router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.CreatePurchases);
 router.get("/PurchasesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, PurchasesController.PurchasesList);
+
+
+//Sales
+router.post("/CreateSales", AuthVerifyMiddleware, SalesController.CreateSales);
+router.get("/SalesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SalesController.SalesList);
+
+
+//Return
+router.post("/CreateReturns", AuthVerifyMiddleware, ReturnsController.CreateReturns);
+router.get("/ReturnsList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ReturnsController.ReturnsList);
 
 module.exports = router;
