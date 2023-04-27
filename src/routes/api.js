@@ -81,15 +81,19 @@ router.get("/ProductsList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware
 //Purchases
 router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.CreatePurchases);
 router.get("/PurchasesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, PurchasesController.PurchasesList);
+router.get("/PurchasesDelete/:id", AuthVerifyMiddleware, PurchasesController.PurchasesDelete);
 
 
 //Sales
 router.post("/CreateSales", AuthVerifyMiddleware, SalesController.CreateSales);
 router.get("/SalesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SalesController.SalesList);
+router.get("/SaleDelete/:id", AuthVerifyMiddleware, SalesController.SaleDelete);
 
 
 //Return
 router.post("/CreateReturns", AuthVerifyMiddleware, ReturnsController.CreateReturns);
 router.get("/ReturnsList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ReturnsController.ReturnsList);
+router.get("/ReturnDelete/:id", AuthVerifyMiddleware, ReturnsController.ReturnDelete);
+
 
 module.exports = router;
