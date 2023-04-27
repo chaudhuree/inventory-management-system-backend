@@ -57,7 +57,7 @@ router.post("/CreateCustomers", AuthVerifyMiddleware, CustomersController.Create
 router.post("/UpdateCustomers/:id", AuthVerifyMiddleware, CustomersController.UpdateCustomers);
 router.get("/CustomersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CustomersController.CustomersList);
 router.get("/CustomersDropDown", AuthVerifyMiddleware, CustomersController.CustomersDropDown);
-router.get("/DeleteCustomer/:id",AuthVerifyMiddleware,CustomersController.DeleteCustomer);
+router.get("/DeleteCustomer/:id", AuthVerifyMiddleware, CustomersController.DeleteCustomer);
 
 
 
@@ -72,6 +72,7 @@ router.post("/CreateExpenseTypes", AuthVerifyMiddleware, ExpenseTypesController.
 router.post("/UpdateExpenseTypes/:id", AuthVerifyMiddleware, ExpenseTypesController.UpdateExpenseTypes);
 router.get("/ExpenseTypesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ExpenseTypesController.ExpenseTypesList);
 router.get("/ExpenseTypesDropDown", AuthVerifyMiddleware, ExpenseTypesController.ExpenseTypesDropDown);
+router.get("/DeleteExpenseTypes/:id", AuthVerifyMiddleware, ExpenseTypesController.DeleteExpenseTypes);
 
 // Expenses
 router.post("/CreateExpenses", AuthVerifyMiddleware, ExpensesController.CreateExpenses);
