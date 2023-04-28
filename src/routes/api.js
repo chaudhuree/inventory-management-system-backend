@@ -119,6 +119,9 @@ router.post("/SalesByDate", AuthVerifyMiddleware, ReportController.SalesByDate);
 
 //Summary
 router.get("/ExpensesSummary", AuthVerifyMiddleware, SummaryController.ExpensesSummary);
+router.get("/ReturnSummary",AuthVerifyMiddleware,SummaryController.ReturnSummary);
+router.get("/PurchaseSummary",AuthVerifyMiddleware,SummaryController.PurchaseSummary);
+router.get("/SalesSummary",AuthVerifyMiddleware,SummaryController.SalesSummary);
 
 
 module.exports = router;
