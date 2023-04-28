@@ -110,6 +110,7 @@ router.get("/ReturnDelete/:id", AuthVerifyMiddleware, ReturnsController.ReturnDe
 //Report
 router.post("/ExpensesByDate",AuthVerifyMiddleware,ReportController.ExpensesByDate);
 router.post("/PurchaseByDate",AuthVerifyMiddleware,ReportController.PurchaseByDate);
-
+router.post("/ReturnByDate",AuthVerifyMiddleware,ReportController.ReturnByDate);
+router.post("/SalesByDate",AuthVerifyMiddleware,ReportController.SalesByDate);
 
 module.exports = router;
