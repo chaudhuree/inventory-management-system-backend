@@ -55,6 +55,7 @@ router.post("/UpdateCategories/:id", AuthVerifyMiddleware, CategoriesController.
 router.get("/CategoriesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CategoriesController.CategoriesList);
 router.get("/CategoriesDropDown", AuthVerifyMiddleware, CategoriesController.CategoriesDropDown);
 router.get("/DeleteCategories/:id", AuthVerifyMiddleware, CategoriesController.DeleteCategories);
+router.get("/CategoriesDetailsByID/:id",AuthVerifyMiddleware,CategoriesController.CategoriesDetailsByID);
 
 
 // Customers
