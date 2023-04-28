@@ -8,6 +8,7 @@ const CheckAssociateService = require("../../services/common/CheckAssociateServi
 const SalesModel = require("../../models/Sales/SalesModel");
 const ReturnsModel = require("../../models/Returns/ReturnsModel");
 const DeleteService = require("../../services/common/DeleteService");
+const DetailsByIDService = require("../../services/common/DetailsByIDService");
 
 
 exports.CreateCustomers = async (req, res) => {
@@ -34,11 +35,6 @@ exports.CustomersDropDown = async (req, res) => {
 }
 
 
-
-
-
-
-
 exports.DeleteCustomer = async (req, res) => {
     let DeleteID = req.params.id;
     const ObjectId = mongoose.Types.ObjectId;
@@ -50,8 +46,13 @@ exports.DeleteCustomer = async (req, res) => {
         res.status(200).json({ status: "associate", data: "Associate with Return" })
     }
     else {
-        // let Result = await DeleteService(req, DataModel);
-        // res.status(200).json(Result)
-        res.send('customer deleted')
+        let Result = await DeleteService(req, DataModel);
+        res.status(200).json(Result)
+        // res.send('customer deleted')
     }
+}
+
+exports.CustomersDetailsByID=async (req, res) => {
+    let Result= await DetailsByIDService(req,DataModel)
+    res.status(200).json(Result)
 }

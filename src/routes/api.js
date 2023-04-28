@@ -64,7 +64,7 @@ router.post("/UpdateCustomers/:id", AuthVerifyMiddleware, CustomersController.Up
 router.get("/CustomersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CustomersController.CustomersList);
 router.get("/CustomersDropDown", AuthVerifyMiddleware, CustomersController.CustomersDropDown);
 router.get("/DeleteCustomer/:id", AuthVerifyMiddleware, CustomersController.DeleteCustomer);
-
+router.get("/CustomersDetailsByID/:id",AuthVerifyMiddleware,CustomersController.CustomersDetailsByID);
 
 
 // Suppliers
