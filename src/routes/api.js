@@ -96,6 +96,7 @@ router.post("/UpdateProducts/:id", AuthVerifyMiddleware, ProductsController.Upda
 router.get("/ProductsList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ProductsController.ProductsList);
 router.get("/DeleteProduct/:id", AuthVerifyMiddleware, ProductsController.DeleteProduct);
 router.get("/ProductsDropDown", AuthVerifyMiddleware, ProductsController.ProductsDropDown);
+router.get("/ProductsDetailsByID/:id",AuthVerifyMiddleware,ProductsController.ProductsDetailsByID);
 
 //Purchases
 router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.CreatePurchases);

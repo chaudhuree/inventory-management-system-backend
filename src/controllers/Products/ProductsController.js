@@ -9,6 +9,8 @@ const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsMo
 const ReturnProductsModel = require("../../models/Returns/ReturnProductsModel");
 const DeleteService = require("../../services/common/DeleteService");
 const DropDownService = require("../../services/common/DropDownService");
+const DetailsByIDService = require("../../services/common/DetailsByIDService");
+
 
 exports.CreateProducts = async (req, res) => {
     let Result = await CreateService(req, DataModel);
@@ -47,7 +49,7 @@ exports.DeleteProduct = async (req, res) => {
         res.status(200).json({ status: "associate", data: "Associate with Sale" })
     }
     else {
-        let Result=await DeleteService(req,DataModel);
+        let Result = await DeleteService(req, DataModel);
         res.status(200).json(Result)
         // res.send('product deleted')
     }
@@ -55,5 +57,10 @@ exports.DeleteProduct = async (req, res) => {
 
 exports.ProductsDropDown = async (req, res) => {
     let Result = await DropDownService(req, DataModel, { _id: 1, Name: 1 })
+    res.status(200).json(Result)
+}
+
+exports.ProductsDetailsByID = async (req, res) => {
+    let Result = await DetailsByIDService(req, DataModel)
     res.status(200).json(Result)
 }
