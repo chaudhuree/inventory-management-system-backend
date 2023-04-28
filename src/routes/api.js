@@ -23,7 +23,8 @@ const PurchasesController = require("../controllers/Purchases/PurchasesControlle
 const SalesController = require("../controllers/Sales/SalesController");
 // return controller
 const ReturnsController = require("../controllers/Returns/ReturnsController");
-
+// report controller
+const ReportController = require("../controllers/Report/ReportController");
 const router = express.Router();
 
 
@@ -105,6 +106,10 @@ router.get("/SaleDelete/:id", AuthVerifyMiddleware, SalesController.SaleDelete);
 router.post("/CreateReturns", AuthVerifyMiddleware, ReturnsController.CreateReturns);
 router.get("/ReturnsList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ReturnsController.ReturnsList);
 router.get("/ReturnDelete/:id", AuthVerifyMiddleware, ReturnsController.ReturnDelete);
+
+//Report
+router.post("/ExpensesByDate",AuthVerifyMiddleware,ReportController.ExpensesByDate);
+
 
 
 module.exports = router;
