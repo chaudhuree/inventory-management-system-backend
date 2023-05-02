@@ -109,7 +109,7 @@ router.get("/PurchasesDelete/:id", AuthVerifyMiddleware, PurchasesController.Pur
 router.post("/CreateSales", AuthVerifyMiddleware, SalesController.CreateSales);
 router.get("/SalesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SalesController.SalesList);
 router.get("/SaleDelete/:id", AuthVerifyMiddleware, SalesController.SaleDelete);
-
+router.get("/SaleDetailsByID/:id", AuthVerifyMiddleware, SalesController.SalesDetailsById);
 
 //Return
 router.post("/CreateReturns", AuthVerifyMiddleware, ReturnsController.CreateReturns);

@@ -3,6 +3,7 @@ const ChildsModel = require("../../models/Sales/SaleProductsModel");
 const CreateParentChildsServiceWithTransaction = require("../../services/common/CreateParentChildsServiceWithTransaction");
 const ListOneJoinService = require("../../services/common/ListOneJoinService");
 const DeleteParentChildsService = require("../../services/common/DeleteParentChildsService");
+const DetailsByIDSaleService = require("../../services/common/DetailsByIDSaleService")
 
 
 
@@ -21,5 +22,12 @@ exports.SalesList = async (req, res) => {
 
 exports.SaleDelete=async (req, res) => {
     let Result=await DeleteParentChildsService(req,ParentModel,ChildsModel,'SaleID')
+    res.status(200).json(Result)
+}
+
+exports.SalesDetailsById=async (req, res) => {
+    // let Result= await ChildsModel.find({SaleID:req.params.id}).populate('ProductID', 'Name')
+    // res.status(200).json(Result)
+    let Result=await DetailsByIDSaleService(req,ChildsModel)
     res.status(200).json(Result)
 }
